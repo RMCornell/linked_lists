@@ -12,6 +12,7 @@ class LinkedList
 		if head.nil?
 			@head = Node.new(data)
 			@count += 1
+			@head.id += count
 		else
 			current = @head
 			while !current.link.nil? do
@@ -19,6 +20,7 @@ class LinkedList
 			end
 			current.link = Node.new(data)
 			@count += 1
+			current.link.id = @count
 		end
 	end
 
@@ -35,18 +37,34 @@ class LinkedList
 		end
 	end
 
+	def pop
 
+	end
+
+	def node_id(id)
+		if head.nil?
+			@head  = Node.new(data)
+			@count += 1
+		else
+			current = @head
+			until current.link.id == 2 do
+				current = current.link.id
+			end
+			return current.link.data.data
+		end
+	end
 end
 
 
 
 
 class Node
-	attr_accessor :data, :link
+	attr_accessor :data, :link, :id
 
-	def initialize(data, link = nil)
+	def initialize(data, link = nil, id = 0)
 		@data      = data
 		@link = link
+		@id = id
 	end
 end
 
