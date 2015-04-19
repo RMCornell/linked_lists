@@ -50,6 +50,17 @@ class LinkedListTest < MiniTest::Test
 		assert_equal 3, list.count
 	end
 
+	def test_it_can_pull_last_node
+		list = LinkedList.new
+		node_one = Node.new("Dream")
+		node_two = Node.new("Destiny")
+		node_three = Node.new("Despair")
+		list.add_node(node_one)
+		list.add_node(node_two)
+		list.add_node(node_three)
+		assert_equal "Despair", list.last
+	end
+
 
 
 end
