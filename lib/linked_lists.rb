@@ -1,24 +1,32 @@
 require 'pry'
 
 class LinkedList
-	attr_reader :head
+	attr_reader :head, :count
 
 	def initialize
 		@head = nil
+		@count = 0
 	end
 
 	def add_node(data)
 		if head.nil?
 			@head = Node.new(data)
+			@count += 1
 		else
 			current = @head
 			while !current.link.nil? do
 				current = current.link
 			end
 			current.link = Node.new(data)
+			@count += 1
 		end
 	end
+
+
+
 end
+
+
 
 
 class Node

@@ -39,6 +39,16 @@ class LinkedListTest < MiniTest::Test
 		assert_equal "Three", list.head.link.link.data.data
 	end
 
+	def test_it_counts_number_of_nodes
+		list = LinkedList.new
+		node_one = Node.new("Dream")
+		node_two = Node.new("Destiny")
+		node_three = Node.new("Despair")
+		list.add_node(node_one)
+		list.add_node(node_two)
+		list.add_node(node_three)
+		assert_equal 3, list.count
+	end
 
 
 
