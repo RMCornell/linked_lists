@@ -6,7 +6,9 @@ class LinkedList
 	end
 
 	def add_node(data)
-
+		if head_node == nil
+			@head_node = Node.new(data)
+		end
 	end
 
 end
