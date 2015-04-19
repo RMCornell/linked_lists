@@ -7,22 +7,48 @@ class LinkedListTest < MiniTest::Test
 		assert LinkedList.new
 	end
 
-	def test_it_starts_nil
-		linked_list = LinkedList.new
-		assert_equal nil, linked_list.head_node
+	def test_it_starts_empty
+		list = LinkedList.new
+		assert list.empty?
 	end
 
-	def test_makes_first_added_node_head_node_when_list_empty
-		linked_list = LinkedList.new
-		node_one = linked_list.add_node(Node.new("Robert"))
-		assert_equal "Robert", node_one.data.data
+	def test_first_node_becomes_head_node
+		list = LinkedList.new
+		node = Node.new("One")
+		list.add_node(node)
+		refute list.empty?
 	end
 
-	def test_head_node_is_no_longer_nil_when_node_added
-		linked_list = LinkedList.new
-		node_one = linked_list.add_node(Node.new("Franklin"))
-		refute nil?, linked_list.head_node
+	def test_second_node_attaches_to_head_node
+		list = LinkedList.new
+		node_one = Node.new("One")
+		node_two = Node.new("Two")
+		list.add_node(node_one)
+		list.add_node(node_two)
+		refute list.head.link.nil?
 	end
+
+	def test_second_node_data_accessible_through_head
+		list = LinkedList.new
+		node_one = Node.new("One")
+		node_two = Node.new("Two")
+		list.add_node(node_one)
+		list.add_node(node_two)
+		assert_equal "Two", list.head.link.data.data
+	end
+
+	def test_third_node_data_accessible_through_head
+		list = LinkedList.new
+		node_one = Node.new("One")
+		node_two = Node.new("Two")
+		node_three = Node.new("Three")
+		list.add_node(node_one)
+		list.add_node(node_two)
+		list.add_node(node_three)
+		assert_equal "Three", list.head.link.data.data
+	end
+
+
+
+
 end
-
-
