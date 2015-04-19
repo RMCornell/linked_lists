@@ -22,6 +22,18 @@ class LinkedList
 		end
 	end
 
+	def last
+		if head.nil?
+			@head  = Node.new(data)
+			@count += 1
+		else
+			current = @head
+			while !current.link.nil? do
+				current = current.link
+			end
+			return current.data.data
+		end
+	end
 
 
 end
