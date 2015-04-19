@@ -9,26 +9,17 @@ class LinkedListTest < MiniTest::Test
 
 	def test_it_starts_empty
 		list = LinkedList.new
-		assert list.empty?
+		assert list.head.nil?
 	end
 
 	def test_first_node_becomes_head_node
 		list = LinkedList.new
 		node = Node.new("One")
 		list.add_node(node)
-		refute list.empty?
+		assert_equal "One", list.head.data.data
 	end
 
 	def test_second_node_attaches_to_head_node
-		list = LinkedList.new
-		node_one = Node.new("One")
-		node_two = Node.new("Two")
-		list.add_node(node_one)
-		list.add_node(node_two)
-		refute list.head.link.nil?
-	end
-
-	def test_second_node_data_accessible_through_head
 		list = LinkedList.new
 		node_one = Node.new("One")
 		node_two = Node.new("Two")
@@ -45,7 +36,7 @@ class LinkedListTest < MiniTest::Test
 		list.add_node(node_one)
 		list.add_node(node_two)
 		list.add_node(node_three)
-		assert_equal "Three", list.head.link.data.data
+		assert_equal "Three", list.head.link.link.data.data
 	end
 
 
