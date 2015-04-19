@@ -61,6 +61,17 @@ class LinkedListTest < MiniTest::Test
 		assert_equal "Despair", list.last
 	end
 
+	def test_it_can_find_node_data_by_id
+		list       = LinkedList.new
+		node_one   = Node.new("Dream")
+		node_two   = Node.new("Destiny")
+		node_three = Node.new("Despair")
+		list.add_node(node_one)
+		list.add_node(node_two)
+		list.add_node(node_three)
+		assert_equal "Destiny", list.node_id(2)
+	end
+
 
 
 end
