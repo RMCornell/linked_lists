@@ -38,16 +38,18 @@ class LinkedList
 	end
 
 	def pop
+	#todo write pop method
+		#find last item in list using count
+		#set link of second to last item to nil (Last item is thrown in garbage)
 
 	end
 
 	def node_id(id)
 		if head.nil?
 			@head  = Node.new(data)
-			@count += 1
 		else
 			current = @head
-			until current.link.id == 2 do
+			until current.link.id == id do
 				current = current.link.id
 			end
 			return current.link.data.data
@@ -68,7 +70,7 @@ class Node
 	end
 end
 
-
+#
 # list = LinkedList.new
 # node_one = Node.new("Dream")
 # node_two = Node.new("Despair")
